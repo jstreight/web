@@ -1,3 +1,16 @@
+// Password protection
+(function() {
+    var correctPassword = "westcoast2026"; // change this
+    var entered = prompt("Enter password to access the Vancouver Island Guide:");
+
+    if (entered !== correctPassword) {
+        document.write("<h1>Access Denied</h1>");
+        document.body.style.backgroundColor = "black";
+        throw new Error("Access denied");
+    }
+})();
+
+
 // Initialize map centered on Vancouver Island
 var map = L.map('map').setView([49.5, -125.5], 8);
 
