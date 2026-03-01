@@ -1,23 +1,31 @@
-// Password protection
-(function() {
-    var correctPassword = "westcoast2026"; // change this
-    var entered = prompt("Enter password to access the Vancouver Island Guide:");
+// // Password protection
+// (function() {
+//     var correctPassword = "westcoast2026"; // change this
+//     var entered = prompt("Enter password to access the Vancouver Island Guide:");
 
-    if (entered !== correctPassword) {
-        document.write("<h1>Access Denied</h1>");
-        document.body.style.backgroundColor = "black";
-        throw new Error("Access denied");
-    }
-})();
+//     if (entered !== correctPassword) {
+//         document.write("<h1>Access Denied</h1>");
+//         document.body.style.backgroundColor = "black";
+//         throw new Error("Access denied");
+//     }
+// })();
 
 
 // Initialize map centered on Vancouver Island
 var map = L.map('map').setView([49.5, -125.5], 8);
 
 // OpenStreetMap tiles
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var streetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+});
+
+// Satellite imagery (Esri World Imagery)
+var satelliteMap = L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'
+    }
+).addTo(map);
 
 // Locations data (GeoJSON style)
 var locations = [
@@ -74,3 +82,36 @@ locations.forEach(function(place) {
         .addTo(map)
         .bindPopup("<b>" + place.name + "</b><br>" + place.description);
 });
+
+// Load roads GeoJSON (example: roads.geojson in /data/)
+fetch('data/roads.geojson')
+    .then(res => res.json())
+    .then(data => {
+        L.geoJSON(data, {
+            style: function(feature) {
+                // Style based on road class
+                switch(feature.properties.highway) {
+                    case 'motorway': return {color: '#ff0000', weight: 5};
+                    case 'primary': return {color: '#ff6600', weight: 4};
+                    case 'secondary': return {color: '#ffcc00', weight: 3};
+                    case 'tertiary': return {color: '#3399ff', weight: 2};
+                    case 'residential': return {color: '#cccccc', weight: 1};
+                    default: return {color: '#999999', weight: 1};
+                }
+            },
+            onEachFeature: function(feature, layer) {
+                if (feature.properties.name) {
+                    layer.bindTooltip(feature.properties.name, {permanent: false, direction: 'center', className: 'road-label'});
+                }
+            }
+        }).addTo(map);
+    });
+
+// --- Layer Control ---
+L.control.layers(
+    {
+        "Street Map": streetMap,
+        "Satellite": satelliteMap
+    }
+
+).addTo(map);
