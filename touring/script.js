@@ -87,44 +87,31 @@ fetch("data/roads.geojson")
   .then(res => res.json())
   .then(data => {
 
-    function roadStyle(feature) {
-      switch (feature.properties.fclass) {
-        case "motorway":
-          return { color: "#d73027", weight: 6 };
-        case "primary":
-          return { color: "#fc8d59", weight: 5 };
-        case "secondary":
-          return { color: "#fee08b", weight: 4 };
-        case "tertiary":
-          return { color: "#91bfdb", weight: 3 };
-        case "residential":
-          return { color: "#cccccc", weight: 2 };
-        case "service":
-          return { color: "#aaaaaa", weight: 1 };
-        default:
-          return { color: "#999999", weight: 1 };
-      }
-    }
-
-    L.geoJSON(data, {
-      style: roadStyle,
-      onEachFeature: function (feature, layer) {
-        if (feature.properties.name) {
-          layer.bindTooltip(feature.properties.name, {
-            permanent: false,
-            direction: "center",
-            className: "road-label"
-          });
+    let roadsLayer = L.geoJSON(data, {
+      style: function(feature) {
+        switch (feature.properties.fclass) {
+          case "motorway": return { color: "#d73027", weight: 6 };
+          case "primary": return { color: "#fc8d59", weight: 5 };
+          case "secondary": return { color: "#fee08b", weight: 4 };
+          case "tertiary": return { color: "#91bfdb", weight: 3 };
+          case "residential": return { color: "#cccccc", weight: 2 };
+          case "service": return { color: "#aaaaaa", weight: 1 };
+          default: return { color: "#999999", weight: 1 };
         }
       }
-    }).addTo(map);
+    });
 
+    let baseMaps = {
+      "Street Map": streetMap,
+      "Satellite": satelliteMap
+    };
+
+    let overlayMaps = {
+      "Roads": roadsLayer
+    };
+
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+    roadsLayer.addTo(map); // remove if you want roads OFF by default
   });
-// --- Layer Control ---
-L.control.layers(
-    {
-        "Street Map": streetMap,
-        "Satellite": satelliteMap
-    }
 
-).addTo(map);
