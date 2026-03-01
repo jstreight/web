@@ -23,10 +23,10 @@ footer {
 }
 
 .road-label {
-    font-size: 10px;
-    color: #333333;
-    background: rgba(255,255,255,0.7);
-    padding: 1px 3px;
-    border-radius: 2px;
-    pointer-events: none;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+  background: none;
+  border: none;
+  box-shadow: none;
 }

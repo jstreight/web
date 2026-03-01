@@ -83,30 +83,43 @@ locations.forEach(function(place) {
         .bindPopup("<b>" + place.name + "</b><br>" + place.description);
 });
 
-// Load roads GeoJSON (example: roads.geojson in /data/)
-fetch('data/roads.geojson')
-    .then(res => res.json())
-    .then(data => {
-        L.geoJSON(data, {
-            style: function(feature) {
-                // Style based on road class
-                switch(feature.properties.highway) {
-                    case 'motorway': return {color: '#ff0000', weight: 5};
-                    case 'primary': return {color: '#ff6600', weight: 4};
-                    case 'secondary': return {color: '#ffcc00', weight: 3};
-                    case 'tertiary': return {color: '#3399ff', weight: 2};
-                    case 'residential': return {color: '#cccccc', weight: 1};
-                    default: return {color: '#999999', weight: 1};
-                }
-            },
-            onEachFeature: function(feature, layer) {
-                if (feature.properties.name) {
-                    layer.bindTooltip(feature.properties.name, {permanent: false, direction: 'center', className: 'road-label'});
-                }
-            }
-        }).addTo(map);
-    });
+fetch("data/roads.geojson")
+  .then(res => res.json())
+  .then(data => {
 
+    function roadStyle(feature) {
+      switch (feature.properties.fclass) {
+        case "motorway":
+          return { color: "#d73027", weight: 6 };
+        case "primary":
+          return { color: "#fc8d59", weight: 5 };
+        case "secondary":
+          return { color: "#fee08b", weight: 4 };
+        case "tertiary":
+          return { color: "#91bfdb", weight: 3 };
+        case "residential":
+          return { color: "#cccccc", weight: 2 };
+        case "service":
+          return { color: "#aaaaaa", weight: 1 };
+        default:
+          return { color: "#999999", weight: 1 };
+      }
+    }
+
+    L.geoJSON(data, {
+      style: roadStyle,
+      onEachFeature: function (feature, layer) {
+        if (feature.properties.name) {
+          layer.bindTooltip(feature.properties.name, {
+            permanent: false,
+            direction: "center",
+            className: "road-label"
+          });
+        }
+      }
+    }).addTo(map);
+
+  });
 // --- Layer Control ---
 L.control.layers(
     {
