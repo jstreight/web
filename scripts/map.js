@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Initialize map
+    // -------------------------
+    // INITIALIZE MAP
+    // -------------------------
     var map = L.map('map', { preferCanvas: true })
         .setView([49.5, -125.5], 8);
 
     // -------------------------
     // BASEMAPS
     // -------------------------
-
     var streetMap = L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         {
@@ -23,9 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
     ).addTo(map); // Default basemap
 
     // -------------------------
-    // CUSTOM RASTER TILES
+    // CUSTOM TILE LAYER (ROADS)
     // -------------------------
-
     var customTiles = L.tileLayer(
         'https://jstreight.github.io/web/data/tiles/{z}/{x}/{y}.png',
         {
@@ -36,10 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 
-    // -------------------------
-    // LOCATIONS
-    // -------------------------
+    // Show custom tiles by default (optional)
+    customTiles.addTo(map);
 
+    // -------------------------
+    // LOCATION MARKERS
+    // -------------------------
     var locations = [
         { name: "Victoria", coords: [48.4284, -123.3656], description: "Capital city of British Columbia." },
         { name: "Tofino", coords: [49.1520, -125.9040], description: "Surf town on the west coast." },
@@ -61,21 +63,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // -------------------------
     // LAYER CONTROL
     // -------------------------
-
     var baseMaps = {
         "Street Map": streetMap,
-        "Satellite": satelliteMap,
+        "Satellite": satelliteMap
+    };
+
+    var overlayMaps = {
         "Roads": customTiles
     };
 
-   
-    L.control.layers(baseMaps, { collapsed: false }).addTo(map);
+    L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
 
     // -------------------------
-    // IMPORTANT FIX FOR GITHUB PAGES
+    // ENSURE PROPER MAP SIZE ON GITHUB PAGES
     // -------------------------
-
-    // Ensures map resizes properly after layout loads
     setTimeout(function () {
         map.invalidateSize();
     }, 100);
