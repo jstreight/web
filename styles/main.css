@@ -87,8 +87,23 @@ h7 {
     background-size: cover;
     background-position: center;
     position: relative;
-    border: #021526;
-    border-width: 5px;
+    height: 300px; /* adjust as needed */
+    border: 5px solid #021526;
+    box-shadow: 0 4px 15px rgba(2, 15, 20, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-family: "Aboreto", cursive;
+}
+
+.header h1 {
+    font-size: 3rem;
+    text-shadow:
+        2px 2px 4px rgba(2,15,20,0.7),   /* soft shadow */
+        0 0 10px rgba(2,15,20,0.4),      /* glow-like effect */
+        1px 1px 2px rgba(2,15,20,0.6);   /* depth layer */
 }
 .container-fluid {
    
@@ -112,7 +127,8 @@ h7 {
 #Jesse {
     border-radius: 50%;
     left: 50%;
-    width: 30%;
+    width: 20vw; /* 20% of viewport width */
+    max-width: 150px; /* won't exceed 150px */
     position: absolute;
     top: 45%;
     transform: translate(-50%, -55%);
