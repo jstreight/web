@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
    
-    L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
+    L.control.layers(baseMaps, { collapsed: false }).addTo(map);
 
     // -------------------------
     // IMPORTANT FIX FOR GITHUB PAGES
