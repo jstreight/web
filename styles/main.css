@@ -409,3 +409,18 @@ footer {
 }
 
 
+/* Map */
+map {
+    height: 80vh;  /* 80% of viewport height */
+    width: 100%;
+}
+.road-label {
+    font-size: 10px;
+    color: #333333;
+    background: rgba(255,255,255,0.7);
+    padding: 1px 3px;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+
