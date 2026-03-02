@@ -85,7 +85,7 @@ h7 {
 
 /* HEADER */
 .header {
-    background-image: url("/images/VancouverBackground.jpg");
+    background-image: url("images/VancouverBackground.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -94,7 +94,7 @@ h7 {
 }
 .container-fluid {
    
-    background-image: url("/images/indoors.jpg");
+    background-image: url("images/indoors.jpg");
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -103,7 +103,7 @@ h7 {
 }
 /* HEADER */
 .header2 {
-    background-image: url("/images/indoors.jpg");
+    background-image: url("images/indoors.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
