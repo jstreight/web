@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var baseMaps = {
         "Street Map": streetMap,
-        "Satellite": satelliteMap
+        "Satellite": satelliteMap,
         "Roads": customTiles
     };
 
