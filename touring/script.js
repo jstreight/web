@@ -1,18 +1,5 @@
-// Password protection (optional)
-// (function() {
-//     var correctPassword = "westcoast2026";
-//     var entered = prompt("Enter password to access the Vancouver Island Guide:");
-//     if (entered !== correctPassword) {
-//         document.write("<h1>Access Denied</h1>");
-//         document.body.style.backgroundColor = "black";
-//         throw new Error("Access denied");
-//     }
-// })();
-
 // Initialize map with Canvas rendering for better performance
-var map = L.map('map', {
-    preferCanvas: true
-}).setView([49.5, -125.5], 8);
+var map = L.map('map', { preferCanvas: true }).setView([49.5, -125.5], 8);
 
 // Basemaps
 var streetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -21,12 +8,10 @@ var streetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
 var satelliteMap = L.tileLayer(
     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-    {
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'
-    }
-).addTo(map); // start with satellite
+    { attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community' }
+).addTo(map);
 
-// Locations data
+// Locations
 var locations = [
     { name: "Victoria", coords: [48.4284, -123.3656], description: "Capital city of British Columbia." },
     { name: "Tofino", coords: [49.1520, -125.9040], description: "Surf town on the west coast." },
@@ -46,44 +31,37 @@ locations.forEach(function(place) {
         .bindPopup("<b>" + place.name + "</b><br>" + place.description);
 });
 
-// Roads layer
-var roadsLayer;
 
-// Fetch roads GeoJSON (already filtered in QGIS: only major roads)
-fetch("data/roads.geojson")
-  .then(res => res.json())
-  .then(data => {
 
-    roadsLayer = L.geoJSON(data, {
-        style: function(feature) {
-            switch (feature.properties.fclass) {
-                case "motorway": return { color: "#d73027", weight: 6 };
-                case "primary": return { color: "#fc8d59", weight: 5 };
-                case "secondary": return { color: "#fee08b", weight: 4 };
-                case "tertiary": return { color: "#91bfdb", weight: 3 };
-                default: return { color: "#999999", weight: 1 };
-            }
+// Roads vector tile layer (not added initially)
+var roadsLayer = L.vectorGrid.protobuf(
+  "https://jstreight.github.io/web/touring/tiles/{z}/{x}/{y}.pbf",
+  {
+    vectorTileLayerStyles: {
+      roads: function(properties, zoom) {
+        switch(properties.fclass) {
+          case "motorway": return { color: "#d73027", weight: 6 };
+          case "primary": return { color: "#fc8d59", weight: 5 };
+          case "secondary": return { color: "#fee08b", weight: 4 };
+          case "tertiary": return { color: "#91bfdb", weight: 3 };
+          default: return { color: "#999999", weight: 1 };
         }
-    });
+      }
+    },
+    interactive: true
+  }
+);
 
-    // Add layer control combining basemaps + overlay
-    var baseMaps = {
-        "Street Map": streetMap,
-        "Satellite": satelliteMap
-    };
+// Layer control
+var baseMaps = { "Street Map": streetMap, "Satellite": satelliteMap };
+var overlayMaps = { "Roads": roadsLayer };
+L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-    var overlayMaps = {
-        "Roads": roadsLayer
-    };
-
-    L.control.layers(baseMaps, overlayMaps).addTo(map);
-
-    // Only add roads at zoom ≥ 10
-    map.on("zoomend", function () {
-        if (map.getZoom() >= 10) {
-            if (!map.hasLayer(roadsLayer)) map.addLayer(roadsLayer);
-        } else {
-            if (map.hasLayer(roadsLayer)) map.removeLayer(roadsLayer);
-        }
-    });
+// Toggle roads layer based on zoom
+map.on("zoomend", function () {
+    if (map.getZoom() >= 10) {
+        if (!map.hasLayer(roadsLayer)) map.addLayer(roadsLayer);
+    } else {
+        if (map.hasLayer(roadsLayer)) map.removeLayer(roadsLayer);
+    }
 });
