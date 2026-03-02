@@ -1,15 +1,20 @@
-body {
-    padding: 0;
+html, body {
+    height: 100%;
     margin: 0;
-    background-image: url("https://jstreight.github.io/web/images/backdrop.jpg");
-    background-size: cover;
-    background-position: center;
-    position: relative;
 }
 
-/* NAVIGATION BAR - INSPIRED BY BOOSTRAP TUTORIAL*/
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#map {
+    flex: 1;
+}
+/* NAVIGATION BAR */
 .navbar {
     background: #021526;
+    padding: 0.5rem 1rem;
 }
 .nav-link {
     color: #fff;
@@ -25,15 +30,9 @@ body {
     text-align: center;
 }
 
-
-
-/* Map */
-map {
-    height: 100%;  /* 80% of viewport height */
-    width: 100%;
-}
+/* ROAD LABELS */
 .road-label {
-    font-size: 10px;
+    font-size: 11px;
     color: #333333;
     background: rgba(255,255,255,0.7);
     padding: 1px 3px;
