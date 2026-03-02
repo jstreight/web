@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { name: "Elk Falls", coords: [50.0403, -125.2345], description: "Waterfall near Campbell River." },
         { name: "Ucluelet", coords: [48.9368, -125.5435], description: "Quieter alternative to Tofino." },
         { name: "Sombrio Beach", coords: [48.5790, -124.3985], description: "Free camping and hidden waterfall." },
-        { name: "Rathtrevor Beach Provincial Park", coords: [49.3322, -124.3172], description: "Warm shallow beach near Parksville." }
+        { name: "Rathtrevor Beach Provincial Park", coords: [49.3207, -124.2657], description: "Warm shallow beach near Parksville." }
     ];
 
     locations.forEach(function(place) {
