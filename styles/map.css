@@ -1,0 +1,42 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url("https://jstreight.github.io/web/images/backdrop.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* NAVIGATION BAR - INSPIRED BY BOOSTRAP TUTORIAL*/
+.navbar {
+    background: #021526;
+}
+.nav-link {
+    color: #fff;
+    font-family: "Aboreto", cursive;
+    cursor: pointer;
+    margin-right: 1em;
+}
+.nav-link:hover {
+    color: #525861;
+}
+.navbar-collapse {
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+/* Map */
+map {
+    height: 100%;  /* 80% of viewport height */
+    width: 100%;
+}
+.road-label {
+    font-size: 10px;
+    color: #333333;
+    background: rgba(255,255,255,0.7);
+    padding: 1px 3px;
+    border-radius: 2px;
+    pointer-events: none;
+}
