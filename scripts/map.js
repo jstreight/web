@@ -20,9 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ).addTo(map); // Default basemap
 
     
-    // Show custom tiles by default
-    customTiles.addTo(map);
-
     // -------------------------
     // LOCATION MARKERS
     // -------------------------
@@ -31,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
         { name: "Tofino", coords: [49.1523, -125.9020], description: "Surf town on the west coast." },
         { name: "Pacific Rim National Park Reserve", coords: [49.0705, -125.8078], description: "Famous beaches and rainforest." },
         { name: "Cathedral Grove", coords: [49.2946, -124.6046], description: "Old-growth forest with massive trees." },
-        { name: "Nanaimo", coords: [49.1659, -123.9401], description: "Harbour city and gateway from Vancouver." },
         { name: "Elk Falls", coords: [50.0403, -125.2345], description: "Waterfall near Campbell River." },
         { name: "Ucluelet", coords: [48.9368, -125.5435], description: "Quieter alternative to Tofino." },
         { name: "Sombrio Beach", coords: [48.5790, -124.3985], description: "Free camping and hidden waterfall." },
