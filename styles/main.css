@@ -16,16 +16,7 @@ body {
     margin-bottom: 20px;
     text-transform: uppercase;
 }
-h1 {
-    font-size: 8vw;
-    font-family: "Aboreto", cursive;
-    color: white;
-    text-align: center;
-    left: 50%;
-    position: absolute;
-    top: 75%;
-    transform: translate(-50%, -55%);
-}
+
 h2 {
     color: #fff;
     font-size: 24pt;
@@ -83,27 +74,35 @@ h7 {
 
 /* HEADER */
 .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* vertically center */
+    align-items: center;      /* horizontally center */
+    height: 500px;            /* increase header height for big text */
     background-image: url("https://jstreight.github.io/web/images/island.jpg");
     background-size: cover;
     background-position: center;
-    position: relative;
-    height: 300px; /* adjust as needed */
-    border: 5px solid #021526;
-    box-shadow: 0 4px 15px rgba(2, 15, 20, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    font-family: "Aboreto", cursive;
 }
 
 .header h1 {
-    font-size: 3px;
+    font-size: clamp(3rem, 10vw, 6rem); /* larger max for desktop */
+    color: white;
+    text-align: center;
+    margin: 0;
     text-shadow:
-        2px 2px 4px rgba(2,15,20,0.7),   /* soft shadow */
-        0 0 10px rgba(2,15,20,0.4),      /* glow-like effect */
-        1px 1px 2px rgba(2,15,20,0.6);   /* depth layer */
+        2px 2px 4px rgba(0,0,0,0.7),
+        0 0 10px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 8vw;
+    font-family: "Aboreto", cursive;
+    color: white;
+    text-align: center;
+    left: 50%;
+    position: absolute;
+    top: 75%;
+    transform: translate(-50%, -55%);
 }
 .container-fluid {
    
@@ -125,16 +124,11 @@ h7 {
 }
 /* HEADER - PROFILE PICTURE*/
 #Jesse {
+    width: clamp(100px, 15vw, 200px); /* responsive */
+    height: auto;
     border-radius: 50%;
-    left: 50%;
-    width: 50vw; /* 50% of viewport width */
-    max-width: 150px; /* won't exceed 150px */
-    position: absolute;
-    top: 45%;
-    transform: translate(-50%, -55%);
-    -webkit-box-shadow: 1px 1px 4px rgb(2, 15, 20);
-    -moz-box-shadow: 1px 1px 4px rgb(2, 15, 20);
-    box-shadow: 10px 50px 20px rgba(2, 15, 20);
+    margin-top: 20px; /* space below h1 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 #Jesse2 {
