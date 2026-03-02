@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             minZoom: 5,
             maxZoom: 15,
-            attribution: "Custom Roads",
+            attribution: "Custom Tiles",
             errorTileUrl: "" // prevents broken image icons
         }
     );
@@ -65,12 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var baseMaps = {
         "Street Map": streetMap,
         "Satellite": satelliteMap
-    };
-
-    var overlayMaps = {
         "Roads": customTiles
     };
 
+   
     L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
 
     // -------------------------
