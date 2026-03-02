@@ -44,14 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // -------------------------
     var locations = [
         { name: "Victoria", coords: [48.4284, -123.3656], description: "Capital city of British Columbia." },
-        { name: "Tofino", coords: [49.1520, -125.9040], description: "Surf town on the west coast." },
-        { name: "Pacific Rim National Park Reserve", coords: [49.0800, -125.7500], description: "Famous beaches and rainforest." },
-        { name: "Cathedral Grove", coords: [49.3036, -124.6273], description: "Old-growth forest with massive trees." },
+        { name: "Tofino", coords: [49.1523, -125.9020], description: "Surf town on the west coast." },
+        { name: "Pacific Rim National Park Reserve", coords: [49.0705, -125.8078], description: "Famous beaches and rainforest." },
+        { name: "Cathedral Grove", coords: [49.2946, -124.6046], description: "Old-growth forest with massive trees." },
         { name: "Nanaimo", coords: [49.1659, -123.9401], description: "Harbour city and gateway from Vancouver." },
-        { name: "Elk Falls", coords: [50.0420, -125.2480], description: "Waterfall near Campbell River." },
-        { name: "Ucluelet", coords: [48.9416, -125.5460], description: "Quieter alternative to Tofino." },
-        { name: "Sombrio Beach", coords: [48.5783, -124.4022], description: "Free camping and hidden waterfall." },
-        { name: "Rathtrevor Beach Provincial Park", coords: [49.3290, -124.3180], description: "Warm shallow beach near Parksville." }
+        { name: "Elk Falls", coords: [50.0403, -125.2345], description: "Waterfall near Campbell River." },
+        { name: "Ucluelet", coords: [48.9368, -125.5435], description: "Quieter alternative to Tofino." },
+        { name: "Sombrio Beach", coords: [48.5790, -124.3985], description: "Free camping and hidden waterfall." },
+        { name: "Rathtrevor Beach Provincial Park", coords: [49.3322, -124.3172], description: "Warm shallow beach near Parksville." }
     ];
 
     locations.forEach(function(place) {
