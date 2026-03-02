@@ -2,6 +2,23 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
+/* NAVIGATION BAR - INSPIRED BY BOOSTRAP TUTORIAL*/
+.navbar {
+    background: #021526;
+}
+.nav-link {
+    color: #fff;
+    font-family: "Aboreto", cursive;
+    cursor: pointer;
+    margin-right: 1em;
+}
+.nav-link:hover {
+    color: #525861;
+}
+.navbar-collapse {
+    justify-content: center;
+    text-align: center;
+}
 
 header {
     text-align: center;
