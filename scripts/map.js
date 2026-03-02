@@ -19,19 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { attribution: 'Tiles © Esri' }
     ).addTo(map); // Default basemap
 
-    // -------------------------
-    // CUSTOM TILE LAYER (ROADS)
-    // -------------------------
-    var customTiles = L.tileLayer(
-        'https://jstreight.github.io/web/data/tiles/{z}/{x}/{y}.png',
-        {
-            minZoom: 5,
-            maxZoom: 15,
-            attribution: "Custom Tiles",
-            errorTileUrl: "" // prevents broken image icons
-        }
-    );
-
+    
     // Show custom tiles by default
     customTiles.addTo(map);
 
@@ -100,11 +88,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "Satellite": satelliteMap
     };
 
-    var overlayMaps = {
-        "Roads": customTiles
-    };
 
-    L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(map);
+    L.control.layers(baseMaps,{ collapsed: false }).addTo(map);
 
     // -------------------------
     // ENSURE PROPER MAP SIZE ON GITHUB PAGES
