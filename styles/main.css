@@ -99,7 +99,7 @@ h7 {
 }
 
 .header h1 {
-    font-size: 3rem;
+    font-size: 3px;
     text-shadow:
         2px 2px 4px rgba(2,15,20,0.7),   /* soft shadow */
         0 0 10px rgba(2,15,20,0.4),      /* glow-like effect */
