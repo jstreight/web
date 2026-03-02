@@ -72,26 +72,38 @@ h7 {
     text-align: center;
 }
 
-/* HEADER */
+/* ================== HEADER ================== */
 .header {
     display: flex;
-    flex-direction: column;
-    justify-content: center;  /* vertically center */
-    align-items: center;      /* horizontally center */
-    height: 500px;            /* increase header height for big text */
+    flex-direction: column;      /* stack h1 and profile */
+    justify-content: center;     /* vertical centering */
+    align-items: center;         /* horizontal centering */
+    height: 500px;               /* tall enough for big h1 */
     background-image: url("https://jstreight.github.io/web/images/island.jpg");
     background-size: cover;
     background-position: center;
+    text-align: center;
+    position: relative;
 }
 
+/* Main title */
 .header h1 {
-    font-size: clamp(3rem, 10vw, 6rem); /* larger max for desktop */
+    font-size: clamp(3rem, 10vw, 6rem); /* scales with screen */
     color: white;
-    text-align: center;
-    margin: 0;
+    margin: 0;                     /* remove default margins */
+    padding: 0;
     text-shadow:
         2px 2px 4px rgba(0,0,0,0.7),
         0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Profile picture */
+#Jesse {
+    width: clamp(100px, 15vw, 200px); /* responsive scaling */
+    height: auto;
+    border-radius: 50%;
+    margin-top: 20px;                 /* spacing below h1 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 h1 {
@@ -122,14 +134,7 @@ h1 {
     border: #021526;
     border-width: 5px;
 }
-/* HEADER - PROFILE PICTURE*/
-#Jesse {
-    width: clamp(100px, 15vw, 200px); /* responsive */
-    height: auto;
-    border-radius: 50%;
-    margin-top: 20px; /* space below h1 */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
+
 
 #Jesse2 {
     border-radius: 50%;
