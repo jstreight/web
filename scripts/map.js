@@ -60,6 +60,25 @@ document.addEventListener("DOMContentLoaded", function () {
             .bindPopup("<b>" + place.name + "</b><br>" + place.description);
     });
 
+
+    // -------------------------
+    // Coordinate Picker
+    // -------------------------
+    map.on('click', function(e) {
+        // e.latlng contains the latitude and longitude of the click
+        var lat = e.latlng.lat.toFixed(6);  // round to 6 decimal places
+        var lng = e.latlng.lng.toFixed(6);
+        
+        // Optional: show a popup at the clicked point
+        L.popup()
+            .setLatLng(e.latlng)
+            .setContent("Coordinates:<br>Lat: " + lat + "<br>Lng: " + lng)
+            .openOn(map);
+        
+        // Optional: log to console
+        console.log("Clicked coordinates: ", lat, lng);
+    });
+
     // -------------------------
     // LAYER CONTROL
     // -------------------------
