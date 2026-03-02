@@ -11,16 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // -------------------------
     var streetMap = L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        {
-            attribution: '&copy; OpenStreetMap contributors'
-        }
+        { attribution: '&copy; OpenStreetMap contributors' }
     );
 
     var satelliteMap = L.tileLayer(
         'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-        {
-            attribution: 'Tiles © Esri'
-        }
+        { attribution: 'Tiles © Esri' }
     ).addTo(map); // Default basemap
 
     // -------------------------
@@ -36,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 
-    // Show custom tiles by default (optional)
+    // Show custom tiles by default
     customTiles.addTo(map);
 
     // -------------------------
@@ -60,23 +56,40 @@ document.addEventListener("DOMContentLoaded", function () {
             .bindPopup("<b>" + place.name + "</b><br>" + place.description);
     });
 
+    // -------------------------
+    // LIVE MOUSE COORDINATES DISPLAY
+    // -------------------------
+    var coordsDiv = L.control({ position: 'bottomleft' });
+    coordsDiv.onAdd = function(map) {
+        this._div = L.DomUtil.create('div', 'mouse-coords');
+        this._div.style.background = 'rgba(255,255,255,0.8)';
+        this._div.style.padding = '5px';
+        this._div.style.borderRadius = '4px';
+        this._div.style.fontSize = '0.85rem';
+        this._div.style.boxShadow = '0 0 4px rgba(0,0,0,0.3)';
+        this._div.innerHTML = "Lat: -- , Lng: --";
+        return this._div;
+    };
+    coordsDiv.addTo(map);
+
+    map.on('mousemove', function(e) {
+        coordsDiv._div.innerHTML = "Lat: " + e.latlng.lat.toFixed(6) + 
+                                   " , Lng: " + e.latlng.lng.toFixed(6);
+    });
 
     // -------------------------
-    // Coordinate Picker
+    // CLICKABLE COORDINATE POPUP
     // -------------------------
     map.on('click', function(e) {
-        // e.latlng contains the latitude and longitude of the click
-        var lat = e.latlng.lat.toFixed(6);  // round to 6 decimal places
+        var lat = e.latlng.lat.toFixed(6);
         var lng = e.latlng.lng.toFixed(6);
-        
-        // Optional: show a popup at the clicked point
+
         L.popup()
             .setLatLng(e.latlng)
             .setContent("Coordinates:<br>Lat: " + lat + "<br>Lng: " + lng)
             .openOn(map);
-        
-        // Optional: log to console
-        console.log("Clicked coordinates: ", lat, lng);
+
+        console.log("Clicked coordinates:", lat, lng);
     });
 
     // -------------------------
