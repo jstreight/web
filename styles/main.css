@@ -1,7 +1,6 @@
-
-/* ========================================================= */
-/* GLOBAL STYLING */
-/* ========================================================= */
+/* =========================================================
+   GLOBAL STYLING
+========================================================= */
 
 *{
     margin:0;
@@ -9,39 +8,61 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family:'Aboreto', cursive;
-    overflow:hidden;
-    background:#020202;
-    color:white;
-    height:100vh;
+:root{
+
+    --orbit-size:min(38vw, 380px);
+
+    --orbit-item-size:min(12vw, 130px);
+
+    --glass-bg:rgba(255,255,255,0.04);
+
+    --glass-border:rgba(255,255,255,0.15);
+
+    --white-soft:rgba(255,255,255,0.08);
+
+    --transition-smooth:
+    transform 0.45s cubic-bezier(.22,.61,.36,1),
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-/* ========================================================= */
-/* BACKGROUND VIDEO */
-/* ========================================================= */
+body{
+    height:100vh;
+    overflow:hidden;
+
+    background:#020202;
+
+    color:white;
+
+    font-family:'Aboreto', cursive;
+}
+
+/* =========================================================
+   BACKGROUND VIDEO
+========================================================= */
 
 #bg-video{
     position:fixed;
-    top:0;
-    left:0;
+    inset:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
-    z-index:-3;
+
     opacity:0.35;
+
+    z-index:-3;
 }
 
-/* ========================================================= */
-/* DARK OVERLAY */
-/* ========================================================= */
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
 
 .overlay{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
 
     background:
     radial-gradient(
@@ -53,72 +74,63 @@ body{
     z-index:-2;
 }
 
-/* ========================================================= */
-/* MAIN INTERFACE */
-/* ========================================================= */
+/* =========================================================
+   MAIN INTERFACE
+========================================================= */
 
 .orbital-interface{
     position:relative;
 
-    width:100vw;
-    height:100vh;
-
     display:flex;
     justify-content:center;
     align-items:center;
+
+    width:100vw;
+    height:100vh;
 }
 
-/* ========================================================= */
-/* OUTER GLOWING RING */
-/* ========================================================= */
+/* =========================================================
+   ORBIT RINGS
+========================================================= */
+
+.orbit-ring,
+.orbit-ring2{
+    position:absolute;
+
+    border-radius:50%;
+}
 
 .orbit-ring{
-    position:absolute;
 
     width:850px;
     height:850px;
-
-    border-radius:50%;
 
     border:1px solid rgba(255,255,255,0.08);
 
     animation:spin 60s linear infinite;
 }
 
-/* ========================================================= */
-/* INNER RING */
-/* ========================================================= */
-
 .orbit-ring2{
-    position:absolute;
 
     width:600px;
     height:600px;
-
-    border-radius:50%;
 
     border:1px solid rgba(255,255,255,0.05);
 
     animation:spinReverse 40s linear infinite;
 }
 
-/* ========================================================= */
-/* CENTER HUB */
-/* ========================================================= */
+/* =========================================================
+   CENTER HUB
+========================================================= */
 
 .center-circle{
     position:absolute;
 
+    z-index:5;
+
     width:320px;
     height:320px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,0.05);
-
-    backdrop-filter:blur(10px);
-
-    border:1px solid rgba(255,255,255,0.15);
 
     display:flex;
     flex-direction:column;
@@ -127,52 +139,70 @@ body{
 
     text-align:center;
 
-    box-shadow:
-    0 0 60px rgba(255,255,255,0.08);
+    border-radius:50%;
 
-    z-index:5;
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid var(--glass-border);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 0 60px var(--white-soft);
 }
 
 .center-circle img{
+
     width:140px;
     height:140px;
 
-    border-radius:50%;
+    margin-bottom:20px;
 
     object-fit:cover;
 
-    border:2px solid rgba(255,255,255,0.3);
+    border-radius:50%;
 
-    margin-bottom:20px;
+    border:2px solid rgba(255,255,255,0.3);
 }
 
 .center-circle h1{
+
+    margin-bottom:10px;
+
     font-size:2rem;
 
     letter-spacing:6px;
-
-    margin-bottom:10px;
 }
 
 .center-circle p{
+
     font-size:0.8rem;
 
-    opacity:0.8;
-
     letter-spacing:3px;
+
+    opacity:0.8;
 }
 
-/* ========================================================= */
-/* MENU ITEMS */
-/* ========================================================= */
+/* =========================================================
+   ORBIT MENU ITEMS
+========================================================= */
 
 .orbit-item{
     position:absolute;
 
-    width:130px;
-    height:130px;
+    top:50%;
+    left:50%;
 
-    border-radius:50%;
+    z-index:10;
+
+    width:var(--orbit-item-size);
+    height:var(--orbit-item-size);
+
+    margin-left:
+    calc(var(--orbit-item-size) / -2);
+
+    margin-top:
+    calc(var(--orbit-item-size) / -2);
 
     display:flex;
     justify-content:center;
@@ -180,25 +210,39 @@ body{
 
     text-align:center;
 
-    color:white;
     text-decoration:none;
 
-    background:rgba(255,255,255,0.04);
+    color:white;
 
-    border:1px solid rgba(255,255,255,0.15);
-
-    backdrop-filter:blur(6px);
-
-    transition:all 0.4s ease;
+    font-size:clamp(0.7rem, 1vw, 1rem);
 
     letter-spacing:2px;
 
-    z-index:10;
+    border-radius:50%;
+
+    background:var(--glass-bg);
+
+    border:1px solid var(--glass-border);
+
+    backdrop-filter:blur(6px);
+
+    --distance:var(--orbit-size);
+
+    transform:
+    translate(
+        calc(var(--distance) * var(--x)),
+        calc(var(--distance) * var(--y))
+    );
+
+    transition:var(--transition-smooth);
+
+    animation:float 6s ease-in-out infinite;
 }
 
 .orbit-item:hover{
 
-    transform:scale(1.15);
+    --distance:
+    calc(var(--orbit-size) * 0.82);
 
     background:white;
 
@@ -208,50 +252,61 @@ body{
     0 0 30px rgba(255,255,255,0.4);
 }
 
-/* ========================================================= */
-/* POSITIONING */
-/* ========================================================= */
+/* =========================================================
+   ORBIT POSITIONS
+========================================================= */
 
 .orbit1{
-    transform:translate(0,-400px);
+    --x:0;
+    --y:-1;
 }
 
 .orbit2{
-    transform:translate(285px,-285px);
+    --x:0.7;
+    --y:-0.7;
 }
 
 .orbit3{
-    transform:translate(400px,0);
+    --x:1;
+    --y:0;
 }
 
 .orbit4{
-    transform:translate(285px,285px);
+    --x:0.7;
+    --y:0.7;
 }
 
 .orbit5{
-    transform:translate(0,400px);
+    --x:0;
+    --y:1;
 }
 
 .orbit6{
-    transform:translate(-285px,285px);
+    --x:-0.7;
+    --y:0.7;
 }
 
 .orbit7{
-    transform:translate(-400px,0);
+    --x:-1;
+    --y:0;
 }
 
 .orbit8{
-    transform:translate(-285px,-285px);
+    --x:-0.7;
+    --y:-0.7;
 }
 
-/* ========================================================= */
-/* FOOTER */
-/* ========================================================= */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer-info{
-    position:absolute;
+    position:fixed;
 
-    bottom:25px;
+    bottom:20px;
+    left:0;
+
+    z-index:100;
 
     width:100%;
 
@@ -262,19 +317,16 @@ body{
     letter-spacing:2px;
 
     opacity:0.7;
-
-    z-index:20;
 }
 
 .footer-info a{
     color:white;
-
     text-decoration:none;
 }
 
-/* ========================================================= */
-/* ANIMATIONS */
-/* ========================================================= */
+/* =========================================================
+   ANIMATIONS
+========================================================= */
 
 @keyframes spin{
 
@@ -298,9 +350,24 @@ body{
     }
 }
 
-/* ========================================================= */
-/* MOBILE RESPONSIVE */
-/* ========================================================= */
+@keyframes float{
+
+    0%{
+        translate:0 0;
+    }
+
+    50%{
+        translate:0 -6px;
+    }
+
+    100%{
+        translate:0 0;
+    }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
 
 @media(max-width:900px){
 
@@ -329,14 +396,16 @@ body{
     .orbit-item{
         position:relative;
 
-        transform:none !important;
-
-        margin:15px;
-
         width:220px;
         height:80px;
 
+        margin:15px;
+
         border-radius:20px;
+
+        transform:none !important;
+
+        animation:none;
     }
 
     .footer-info{
@@ -782,3 +851,42 @@ footer {
 
 
 
+/* ========================================================= */
+/* ORBITAL LAYOUT OVERRIDES */
+/* ========================================================= */
+
+.center-circle h1{
+
+    position:relative !important;
+
+    top:auto !important;
+    left:auto !important;
+
+    transform:none !important;
+
+    font-size:2rem !important;
+
+    margin-bottom:10px;
+}
+
+.center-circle{
+
+    position:absolute !important;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%, -50%);
+}
+
+.orbit-item{
+
+    top:50%;
+    left:50%;
+
+    margin-left:
+    calc(min(12vw,130px) / -2);
+
+    margin-top:
+    calc(min(12vw,130px) / -2);
+}
