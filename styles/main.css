@@ -30,6 +30,7 @@
 body{
     height:100vh;
     overflow:hidden;
+    height:100vh;
 
     background:#020202;
 
@@ -79,6 +80,8 @@ body{
 ========================================================= */
 
 .orbital-interface{
+    padding:120px;
+    box-sizing:border-box;
     position:relative;
 
     display:flex;
