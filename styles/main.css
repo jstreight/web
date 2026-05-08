@@ -10,7 +10,7 @@
 
 :root{
 
-    --orbit-size:min(24vw, 220px);
+    --orbit-size:min(27vw, 270px);
 
     --orbit-ring-large:min(58vw, 700px);
     --orbit-ring-small:min(44vw, 520px);
@@ -256,12 +256,6 @@ body{
     width:var(--orbit-item-size);
     height:var(--orbit-item-size);
 
-    margin-left:
-    calc(var(--orbit-item-size) / -2);
-
-    margin-top:
-    calc(var(--orbit-item-size) / -2);
-
     display:flex;
     justify-content:center;
     align-items:center;
@@ -287,10 +281,11 @@ body{
     --distance:var(--orbit-size);
 
     transform:
-    translate(
-        calc(var(--distance) * var(--x)),
-        calc(var(--distance) * var(--y))
-    );
+        translate(-50%, -50%)
+        translate(
+            calc(var(--distance) * var(--x)),
+            calc(var(--distance) * var(--y))
+        );
 
     transition:var(--transition-smooth);
 
@@ -959,9 +954,5 @@ th {
     top:50%;
     left:50%;
 
-    margin-left:
-    calc(min(12vw,130px) / -2);
 
-    margin-top:
-    calc(min(12vw,130px) / -2);
 }
