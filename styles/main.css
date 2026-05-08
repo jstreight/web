@@ -11,8 +11,10 @@
 :root{
 
     --orbit-size:min(30vw, 300px);
+
     --orbit-ring-large:min(70vw, 850px);
     --orbit-ring-small:min(52vw, 600px);
+
     --center-size:min(28vw, 320px);
 
     --orbit-item-size:min(12vw, 130px);
@@ -30,8 +32,14 @@
     box-shadow 0.35s ease;
 }
 
+/* =========================================================
+   BODY
+========================================================= */
+
 body{
+
     min-height:100vh;
+
     overflow-x:hidden;
     overflow-y:auto;
 
@@ -47,6 +55,7 @@ body{
 ========================================================= */
 
 #bg-video{
+
     position:fixed;
     inset:0;
 
@@ -65,6 +74,7 @@ body{
 ========================================================= */
 
 .overlay{
+
     position:fixed;
     inset:0;
 
@@ -83,6 +93,7 @@ body{
 ========================================================= */
 
 .orbital-interface{
+
     position:relative;
 
     display:flex;
@@ -90,6 +101,7 @@ body{
     align-items:center;
 
     width:100%;
+
     min-height:100vh;
 
     padding:120px 40px 180px;
@@ -103,6 +115,7 @@ body{
 
 .orbit-ring,
 .orbit-ring2{
+
     position:absolute;
 
     top:50%;
@@ -116,6 +129,7 @@ body{
 }
 
 .orbit-ring{
+
     width:var(--orbit-ring-large);
     height:var(--orbit-ring-large);
 
@@ -128,6 +142,7 @@ body{
 }
 
 .orbit-ring2{
+
     width:var(--orbit-ring-small);
     height:var(--orbit-ring-small);
 
@@ -141,12 +156,13 @@ body{
 ========================================================= */
 
 .center-circle{
+
     position:absolute;
 
     z-index:5;
 
-    width:320px;
-    height:320px;
+    width:var(--center-size);
+    height:var(--center-size);
 
     display:flex;
     flex-direction:column;
@@ -204,6 +220,7 @@ body{
 ========================================================= */
 
 .orbit-item{
+
     position:absolute;
 
     top:50%;
@@ -317,6 +334,7 @@ body{
 ========================================================= */
 
 .footer-info{
+
     position:fixed;
 
     bottom:20px;
@@ -336,7 +354,9 @@ body{
 }
 
 .footer-info a{
+
     color:white;
+
     text-decoration:none;
 }
 
@@ -347,22 +367,30 @@ body{
 @keyframes spin{
 
     from{
-        transform:rotate(0deg);
+        transform:
+        translate(-50%, -50%)
+        rotate(0deg);
     }
 
     to{
-        transform:rotate(360deg);
+        transform:
+        translate(-50%, -50%)
+        rotate(360deg);
     }
 }
 
 @keyframes spinReverse{
 
     from{
-        transform:rotate(360deg);
+        transform:
+        translate(-50%, -50%)
+        rotate(360deg);
     }
 
     to{
-        transform:rotate(0deg);
+        transform:
+        translate(-50%, -50%)
+        rotate(0deg);
     }
 }
 
@@ -397,6 +425,7 @@ body{
     }
 
     .orbital-interface{
+
         flex-direction:column;
 
         padding-top:50px;
@@ -404,12 +433,14 @@ body{
     }
 
     .center-circle{
+
         position:relative;
 
         margin-bottom:40px;
     }
 
     .orbit-item{
+
         position:relative;
 
         width:220px;
@@ -425,6 +456,7 @@ body{
     }
 
     .footer-info{
+
         position:relative;
 
         margin-top:40px;
@@ -432,7 +464,6 @@ body{
         padding-bottom:30px;
     }
 }
-
 
 
 
