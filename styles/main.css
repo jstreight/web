@@ -10,14 +10,14 @@
 
 :root{
 
-    --orbit-size:min(30vw, 300px);
+    --orbit-size:min(24vw, 220px);
 
-    --orbit-ring-large:min(70vw, 850px);
-    --orbit-ring-small:min(52vw, 600px);
+    --orbit-ring-large:min(58vw, 700px);
+    --orbit-ring-small:min(44vw, 520px);
 
-    --center-size:min(28vw, 320px);
+    --center-size:min(24vw, 280px);
 
-    --orbit-item-size:min(12vw, 130px);
+    --orbit-item-size:min(10vw, 110px);
 
     --glass-bg:rgba(255,255,255,0.04);
 
@@ -102,9 +102,9 @@ body{
 
     width:100%;
 
-    min-height:100vh;
+    min-height:calc(100vh - 120px);
 
-    padding:120px 40px 180px;
+    padding:80px 40px 120px;
 
     overflow:visible;
 }
@@ -185,8 +185,8 @@ body{
 
 .center-circle img{
 
-    width:140px;
-    height:140px;
+    width:120px;
+    height:120px;
 
     margin-bottom:20px;
 
@@ -201,14 +201,14 @@ body{
 
     margin-bottom:10px;
 
-    font-size:2rem;
+    font-size:1.8rem;
 
     letter-spacing:6px;
 }
 
 .center-circle p{
 
-    font-size:0.8rem;
+    font-size:0.75rem;
 
     letter-spacing:3px;
 
@@ -247,7 +247,7 @@ body{
 
     color:white;
 
-    font-size:clamp(0.7rem, 1vw, 1rem);
+    font-size:clamp(0.65rem, 1vw, 0.95rem);
 
     letter-spacing:2px;
 
@@ -335,14 +335,14 @@ body{
 
 .footer-info{
 
-    position:fixed;
-
-    bottom:20px;
-    left:0;
+    position:relative;
 
     z-index:100;
 
     width:100%;
+
+    margin-top:40px;
+    padding-bottom:30px;
 
     text-align:center;
 
@@ -429,7 +429,7 @@ body{
         flex-direction:column;
 
         padding-top:50px;
-        padding-bottom:120px;
+        padding-bottom:80px;
     }
 
     .center-circle{
@@ -457,11 +457,7 @@ body{
 
     .footer-info{
 
-        position:relative;
-
-        margin-top:40px;
-
-        padding-bottom:30px;
+        margin-top:30px;
     }
 }
 
