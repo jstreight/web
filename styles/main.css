@@ -1,3 +1,362 @@
+
+/* ========================================================= */
+/* GLOBAL STYLING */
+/* ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Aboreto', cursive;
+    overflow:hidden;
+    background:#020202;
+    color:white;
+    height:100vh;
+}
+
+/* ========================================================= */
+/* BACKGROUND VIDEO */
+/* ========================================================= */
+
+#bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-3;
+    opacity:0.35;
+}
+
+/* ========================================================= */
+/* DARK OVERLAY */
+/* ========================================================= */
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(255,255,255,0.03),
+        rgba(0,0,0,0.92)
+    );
+
+    z-index:-2;
+}
+
+/* ========================================================= */
+/* MAIN INTERFACE */
+/* ========================================================= */
+
+.orbital-interface{
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ========================================================= */
+/* OUTER GLOWING RING */
+/* ========================================================= */
+
+.orbit-ring{
+    position:absolute;
+
+    width:850px;
+    height:850px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    animation:spin 60s linear infinite;
+}
+
+/* ========================================================= */
+/* INNER RING */
+/* ========================================================= */
+
+.orbit-ring2{
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    animation:spinReverse 40s linear infinite;
+}
+
+/* ========================================================= */
+/* CENTER HUB */
+/* ========================================================= */
+
+.center-circle{
+    position:absolute;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    box-shadow:
+    0 0 60px rgba(255,255,255,0.08);
+
+    z-index:5;
+}
+
+.center-circle img{
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid rgba(255,255,255,0.3);
+
+    margin-bottom:20px;
+}
+
+.center-circle h1{
+    font-size:2rem;
+
+    letter-spacing:6px;
+
+    margin-bottom:10px;
+}
+
+.center-circle p{
+    font-size:0.8rem;
+
+    opacity:0.8;
+
+    letter-spacing:3px;
+}
+
+/* ========================================================= */
+/* MENU ITEMS */
+/* ========================================================= */
+
+.orbit-item{
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+    text-decoration:none;
+
+    background:rgba(255,255,255,0.04);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(6px);
+
+    transition:all 0.4s ease;
+
+    letter-spacing:2px;
+
+    z-index:10;
+}
+
+.orbit-item:hover{
+
+    transform:scale(1.15);
+
+    background:white;
+
+    color:black;
+
+    box-shadow:
+    0 0 30px rgba(255,255,255,0.4);
+}
+
+/* ========================================================= */
+/* POSITIONING */
+/* ========================================================= */
+
+.orbit1{
+    transform:translate(0,-400px);
+}
+
+.orbit2{
+    transform:translate(285px,-285px);
+}
+
+.orbit3{
+    transform:translate(400px,0);
+}
+
+.orbit4{
+    transform:translate(285px,285px);
+}
+
+.orbit5{
+    transform:translate(0,400px);
+}
+
+.orbit6{
+    transform:translate(-285px,285px);
+}
+
+.orbit7{
+    transform:translate(-400px,0);
+}
+
+.orbit8{
+    transform:translate(-285px,-285px);
+}
+
+/* ========================================================= */
+/* FOOTER */
+/* ========================================================= */
+
+.footer-info{
+    position:absolute;
+
+    bottom:25px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:0.75rem;
+
+    letter-spacing:2px;
+
+    opacity:0.7;
+
+    z-index:20;
+}
+
+.footer-info a{
+    color:white;
+
+    text-decoration:none;
+}
+
+/* ========================================================= */
+/* ANIMATIONS */
+/* ========================================================= */
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes spinReverse{
+
+    from{
+        transform:rotate(360deg);
+    }
+
+    to{
+        transform:rotate(0deg);
+    }
+}
+
+/* ========================================================= */
+/* MOBILE RESPONSIVE */
+/* ========================================================= */
+
+@media(max-width:900px){
+
+    body{
+        overflow:auto;
+    }
+
+    .orbit-ring,
+    .orbit-ring2{
+        display:none;
+    }
+
+    .orbital-interface{
+        flex-direction:column;
+
+        padding-top:50px;
+        padding-bottom:120px;
+    }
+
+    .center-circle{
+        position:relative;
+
+        margin-bottom:40px;
+    }
+
+    .orbit-item{
+        position:relative;
+
+        transform:none !important;
+
+        margin:15px;
+
+        width:220px;
+        height:80px;
+
+        border-radius:20px;
+    }
+
+    .footer-info{
+        position:relative;
+
+        margin-top:40px;
+
+        padding-bottom:30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 /* BODY AND MAIN FORMATING */
 body {
     padding: 0;
@@ -420,8 +779,6 @@ footer {
     height: 100%;
     border: 0;
 }
-
-
 
 
 
