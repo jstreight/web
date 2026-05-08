@@ -83,35 +83,57 @@ body{
 ========================================================= */
 
 .orbital-interface{
-    padding:40px;
-    box-sizing:border-box;
     position:relative;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    width:100vw;
-    height:100vh;
+    width:100%;
+    min-height:100vh;
+
+    padding:120px 40px 180px;
+
+    overflow:visible;
 }
 
 /* =========================================================
    ORBIT RINGS
 ========================================================= */
 
+.orbit-ring,
+.orbit-ring2{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%, -50%);
+
+    border-radius:50%;
+
+    pointer-events:none;
+}
+
 .orbit-ring{
     width:var(--orbit-ring-large);
     height:var(--orbit-ring-large);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,0.04);
+
+    animation:spin 120s linear infinite;
 }
 
 .orbit-ring2{
     width:var(--orbit-ring-small);
     height:var(--orbit-ring-small);
-}
 
-.center-circle{
-    width:var(--center-size);
-    height:var(--center-size);
+    border:1px solid rgba(255,255,255,0.08);
+
+    animation:spinReverse 90s linear infinite;
 }
 
 /* =========================================================
