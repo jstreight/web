@@ -35,7 +35,7 @@
 <body>
 
     <!-- ========================================================= -->
-    <!-- OPTIONAL VIDEO BACKGROUND -->
+    <!-- BACKGROUND VIDEO -->
     <!-- ========================================================= -->
 
     <video autoplay muted loop playsinline id="bg-video">
@@ -50,26 +50,30 @@
     <div class="overlay"></div>
 
     <!-- ========================================================= -->
+    <!-- MOBILE MENU BUTTON -->
+    <!-- ========================================================= -->
+
+    <button class="mobile-menu-toggle"
+            aria-label="Toggle Navigation">
+
+        ☰
+
+    </button>
+
+    <!-- ========================================================= -->
     <!-- MAIN INTERFACE -->
     <!-- ========================================================= -->
 
     <main class="orbital-interface">
 
-        <!-- ========================================================= -->
-        <!-- ORBIT SYSTEM WRAPPER -->
-        <!-- ========================================================= -->
-
         <div class="orbit-system">
 
-            <!-- GLOWING RINGS -->
+            <!-- ORBIT RINGS -->
 
             <div class="orbit-ring"></div>
-
             <div class="orbit-ring2"></div>
 
-            <!-- ========================================================= -->
             <!-- CENTER HUB -->
-            <!-- ========================================================= -->
 
             <div class="center-circle">
 
@@ -84,58 +88,53 @@
 
             </div>
 
-            <!-- ========================================================= -->
-            <!-- ORBITAL NAVIGATION -->
-            <!-- ========================================================= -->
+            <!-- ORBIT MENU -->
 
-            <a class="orbit-item orbit1"
-               href="index.html">
-               HOME
+            <a class="orbit-item orbit1" href="index.html">
+                HOME
             </a>
 
             <a class="orbit-item orbit2"
                href="pages/projects.html">
-               PROJECTS
+                PROJECTS
             </a>
 
             <a class="orbit-item orbit3"
                href="pages/background.html">
-               BIO
+                BIO
             </a>
 
             <a class="orbit-item orbit4"
                href="pages/education.html">
-               EDUCATION
+                EDUCATION
             </a>
 
             <a class="orbit-item orbit5"
                href="documents/Jesse Streight.pdf"
                target="_blank">
-               RESUME
+                RESUME
             </a>
 
             <a class="orbit-item orbit6"
                href="https://jstreight.blogspot.com/"
                target="_blank">
-               BLOG
+                BLOG
             </a>
 
             <a class="orbit-item orbit7"
                href="pages/map.html">
-               MAP
+                MAP
             </a>
 
             <a class="orbit-item orbit8"
                href="https://www.realtor.ca/"
                target="_blank">
-               REAL ESTATE
+                REAL ESTATE
             </a>
 
         </div>
 
-        <!-- ========================================================= -->
         <!-- FOOTER -->
-        <!-- ========================================================= -->
 
         <footer class="footer-info">
 
@@ -156,6 +155,27 @@
         </footer>
 
     </main>
+
+    <!-- ========================================================= -->
+    <!-- MOBILE MENU SCRIPT -->
+    <!-- ========================================================= -->
+
+    <script>
+
+        const menuButton =
+            document.querySelector('.mobile-menu-toggle');
+
+        menuButton.addEventListener('click', () => {
+
+            document.body.classList.toggle('menu-open');
+
+            menuButton.textContent =
+                document.body.classList.contains('menu-open')
+                ? '✕'
+                : '☰';
+        });
+
+    </script>
 
 </body>
 
