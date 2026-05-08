@@ -10,7 +10,10 @@
 
 :root{
 
-    --orbit-size:min(38vw, 380px);
+    --orbit-size:min(30vw, 300px);
+    --orbit-ring-large:min(70vw, 850px);
+    --orbit-ring-small:min(52vw, 600px);
+    --center-size:min(28vw, 320px);
 
     --orbit-item-size:min(12vw, 130px);
 
@@ -28,9 +31,9 @@
 }
 
 body{
-    height:100vh;
-    overflow:hidden;
-    height:100vh;
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
 
     background:#020202;
 
@@ -80,7 +83,7 @@ body{
 ========================================================= */
 
 .orbital-interface{
-    padding:120px;
+    padding:40px;
     box-sizing:border-box;
     position:relative;
 
@@ -96,31 +99,19 @@ body{
    ORBIT RINGS
 ========================================================= */
 
-.orbit-ring,
-.orbit-ring2{
-    position:absolute;
-
-    border-radius:50%;
-}
-
 .orbit-ring{
-
-    width:850px;
-    height:850px;
-
-    border:1px solid rgba(255,255,255,0.08);
-
-    animation:spin 60s linear infinite;
+    width:var(--orbit-ring-large);
+    height:var(--orbit-ring-large);
 }
 
 .orbit-ring2{
+    width:var(--orbit-ring-small);
+    height:var(--orbit-ring-small);
+}
 
-    width:600px;
-    height:600px;
-
-    border:1px solid rgba(255,255,255,0.05);
-
-    animation:spinReverse 40s linear infinite;
+.center-circle{
+    width:var(--center-size);
+    height:var(--center-size);
 }
 
 /* =========================================================
