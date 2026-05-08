@@ -38,11 +38,7 @@
     <!-- OPTIONAL VIDEO BACKGROUND -->
     <!-- ========================================================= -->
 
-    <!--
-    Replace "video.mp4" with your own cinematic footage
-    -->
-
-    <video autoplay muted loop id="bg-video">
+    <video autoplay muted loop playsinline id="bg-video">
 
         <source src="video.mp4"
                 type="video/mp4">
@@ -57,101 +53,109 @@
     <!-- MAIN INTERFACE -->
     <!-- ========================================================= -->
 
-    <div class="orbital-interface">
-
-        <!-- GLOWING RINGS -->
-
-        <div class="orbit-ring"></div>
-
-        <div class="orbit-ring2"></div>
+    <main class="orbital-interface">
 
         <!-- ========================================================= -->
-        <!-- CENTER HUB -->
+        <!-- ORBIT SYSTEM WRAPPER -->
         <!-- ========================================================= -->
 
-        <div class="center-circle">
+        <div class="orbit-system">
 
-            <img src="images/Jesse.png"
-                 alt="Jesse Streight">
+            <!-- GLOWING RINGS -->
 
-            <h1>JESSE</h1>
+            <div class="orbit-ring"></div>
 
-            <p>
-                GIS • WEB • DESIGN
-            </p>
+            <div class="orbit-ring2"></div>
+
+            <!-- ========================================================= -->
+            <!-- CENTER HUB -->
+            <!-- ========================================================= -->
+
+            <div class="center-circle">
+
+                <img src="images/Jesse.png"
+                     alt="Jesse Streight">
+
+                <h1>JESSE</h1>
+
+                <p>
+                    GIS • WEB • DESIGN
+                </p>
+
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- ORBITAL NAVIGATION -->
+            <!-- ========================================================= -->
+
+            <a class="orbit-item orbit1"
+               href="index.html">
+               HOME
+            </a>
+
+            <a class="orbit-item orbit2"
+               href="pages/projects.html">
+               PROJECTS
+            </a>
+
+            <a class="orbit-item orbit3"
+               href="pages/background.html">
+               BIO
+            </a>
+
+            <a class="orbit-item orbit4"
+               href="pages/education.html">
+               EDUCATION
+            </a>
+
+            <a class="orbit-item orbit5"
+               href="documents/Jesse Streight.pdf"
+               target="_blank">
+               RESUME
+            </a>
+
+            <a class="orbit-item orbit6"
+               href="https://jstreight.blogspot.com/"
+               target="_blank">
+               BLOG
+            </a>
+
+            <a class="orbit-item orbit7"
+               href="pages/map.html">
+               MAP
+            </a>
+
+            <a class="orbit-item orbit8"
+               href="https://www.realtor.ca/"
+               target="_blank">
+               REAL ESTATE
+            </a>
 
         </div>
 
         <!-- ========================================================= -->
-        <!-- ORBITAL NAVIGATION -->
+        <!-- FOOTER -->
         <!-- ========================================================= -->
 
-        <a class="orbit-item orbit1"
-           href="index.html">
-           HOME
-        </a>
+        <footer class="footer-info">
 
-        <a class="orbit-item orbit2"
-           href="pages/projects.html">
-           PROJECTS
-        </a>
+            PORT ALBERNI, BC • GIS & INTERACTIVE DESIGN
 
-        <a class="orbit-item orbit3"
-           href="pages/background.html">
-           BIO
-        </a>
+            <br><br>
 
-        <a class="orbit-item orbit4"
-           href="pages/education.html">
-           EDUCATION
-        </a>
+            <a href="mailto:jessestreight43@gmail.com">
+                JESSESTREIGHT43@GMAIL.COM
+            </a>
 
-        <a class="orbit-item orbit5"
-           href="documents/Jesse Streight.pdf"
-           target="_blank">
-           RESUME
-        </a>
+            <br><br>
 
-        <a class="orbit-item orbit6"
-           href="https://jstreight.blogspot.com/"
-           target="_blank">
-           BLOG
-        </a>
+            <script>
+                document.write(new Date().toDateString());
+            </script>
 
-        <a class="orbit-item orbit7"
-           href="pages/map.html">
-           MAP
-        </a>
+        </footer>
 
-        <a class="orbit-item orbit8"
-           href="https://www.realtor.ca/"
-           target="_blank">
-           REAL ESTATE
-        </a>
-
-    </div>
-
-    <!-- ========================================================= -->
-    <!-- FOOTER -->
-    <!-- ========================================================= -->
-
-    <div class="footer-info">
-
-        PORT ALBERNI, BC • GIS & INTERACTIVE DESIGN
-
-        <br><br>
-
-        <a href="mailto:jessestreight43@gmail.com">
-            JESSESTREIGHT43@GMAIL.COM
-        </a>
-
-        <br><br>
-
-        <script>
-            document.write(new Date().toDateString());
-        </script>
-
-    </div>
+    </main>
 
 </body>
 

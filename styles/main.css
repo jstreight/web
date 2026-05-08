@@ -97,16 +97,36 @@ body{
     position:relative;
 
     display:flex;
+    flex-direction:column;
+
     justify-content:center;
     align-items:center;
 
     width:100%;
 
-    min-height:calc(100vh - 120px);
+    min-height:100vh;
 
-    padding:80px 40px 120px;
+    padding:40px 20px 80px;
 
     overflow:visible;
+}
+
+/* =========================================================
+   ORBIT SYSTEM WRAPPER
+========================================================= */
+
+.orbit-system{
+
+    position:relative;
+
+    width:min(80vw, 850px);
+    height:min(80vw, 850px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-shrink:0;
 }
 
 /* =========================================================
@@ -158,6 +178,11 @@ body{
 .center-circle{
 
     position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%, -50%);
 
     z-index:5;
 
@@ -424,9 +449,18 @@ body{
         display:none;
     }
 
-    .orbital-interface{
+    .orbit-system{
 
+        width:100%;
+
+        height:auto;
+
+        display:flex;
         flex-direction:column;
+        align-items:center;
+    }
+
+    .orbital-interface{
 
         padding-top:50px;
         padding-bottom:80px;
@@ -436,12 +470,20 @@ body{
 
         position:relative;
 
+        top:auto;
+        left:auto;
+
+        transform:none;
+
         margin-bottom:40px;
     }
 
     .orbit-item{
 
         position:relative;
+
+        top:auto;
+        left:auto;
 
         width:220px;
         height:80px;
@@ -772,17 +814,7 @@ th {
     border-radius: 5%;
     text-align: center; /* Center text if needed */
 }
-/* FOOTER*/
-footer {
-    background-color: #111310;
-    background-position: bottom;
-    position: relative;
-    height: 200px;
-    width: 100%;
-    color: white;
-    font-family: "Aboreto", cursive;
-    font-size: 20pt;
-}
+
 
 /* FOOTER - PADDED OVERLAY - SECTION 3*/
 .section3 {
