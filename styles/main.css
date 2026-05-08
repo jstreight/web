@@ -429,20 +429,33 @@ body{
     }
 }
 
-/* =========================================================
+//* =========================================================
    MOBILE RESPONSIVE
 ========================================================= */
 
 @media(max-width:900px){
 
-    body{
-        overflow:auto;
+    :root{
+
+        --center-size:220px;
     }
 
-    .orbit-ring,
-    .orbit-ring2{
-        display:none;
+    body{
+
+        overflow-x:hidden;
+        overflow-y:auto;
     }
+
+    .orbital-interface{
+
+        min-height:auto;
+
+        padding:40px 20px 60px;
+    }
+
+    /* =========================================
+       REMOVE ORBIT SYSTEM SIZING
+    ========================================= */
 
     .orbit-system{
 
@@ -453,13 +466,22 @@ body{
         display:flex;
         flex-direction:column;
         align-items:center;
+        justify-content:center;
     }
 
-    .orbital-interface{
+    /* =========================================
+       HIDE RINGS
+    ========================================= */
 
-        padding-top:50px;
-        padding-bottom:80px;
+    .orbit-ring,
+    .orbit-ring2{
+
+        display:none;
     }
+
+    /* =========================================
+       CENTER HUB
+    ========================================= */
 
     .center-circle{
 
@@ -470,8 +492,37 @@ body{
 
         transform:none;
 
-        margin-bottom:40px;
+        width:var(--center-size);
+        height:var(--center-size);
+
+        margin-bottom:35px;
     }
+
+    .center-circle img{
+
+        width:95px;
+        height:95px;
+
+        margin-bottom:14px;
+    }
+
+    .center-circle h1{
+
+        font-size:1.3rem;
+
+        letter-spacing:4px;
+    }
+
+    .center-circle p{
+
+        font-size:0.7rem;
+
+        letter-spacing:2px;
+    }
+
+    /* =========================================
+       MOBILE MENU CARDS
+    ========================================= */
 
     .orbit-item{
 
@@ -480,24 +531,42 @@ body{
         top:auto;
         left:auto;
 
-        width:220px;
-        height:80px;
-
-        margin:15px;
-
-        border-radius:20px;
-
         transform:none !important;
 
         animation:none;
+
+        width:min(92vw, 320px);
+        height:64px;
+
+        margin:10px 0;
+
+        border-radius:18px;
+
+        font-size:0.82rem;
+
+        letter-spacing:2px;
     }
+
+    .orbit-item:hover{
+
+        transform:none !important;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
 
     .footer-info{
 
-        margin-top:30px;
+        margin-top:40px;
+
+        padding-bottom:20px;
+
+        font-size:0.68rem;
+
+        line-height:1.8;
     }
 }
-
 
 
 
