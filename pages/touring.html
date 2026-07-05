@@ -4,79 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Map</title>
-    <link rel="shortcut icon" href="https://jstreight.github.io/web/images/favicon2.ico">
+    <link rel="shortcut icon" href="../images/favicon2.ico">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="https://jstreight.github.io/web/styles/map.css">
-    
-
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../styles/map.css">
 </head>
 
-<!--====================================================================================================================-->
-<!-- NAVBAR AND ASSOCIATED LINKS FROM BOOSTRAP TUTORIAL-->
-<!--====================================================================================================================-->
-<body>
-    <nav class="navbar navbar-expand-md">
-        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="main-navigation">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://jstreight.github.io/web/index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://jstreight.github.io/web/pages/projects.html">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://jstreight.github.io/web/pages/background.html">Bio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://jstreight.github.io/web/pages/education.html">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://jstreight.github.io/web/documents/Jesse Streight.pdf">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://jstreight.blogspot.com/">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://jstreight.github.io/web/pages/map.html">Map</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.realtor.ca/map#ZoomLevel=8&Center=49.108480%2C-125.651106&LatitudeMax=50.02758&LongitudeMax=-122.39641&LatitudeMin=48.17203&LongitudeMin=-128.90581&Sort=6-D&PropertyTypeGroupID=1&TransactionTypeId=2&PropertySearchTypeId=0&Currency=CAD">Real Estate</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<body class="subpage map-page">
 
-<!-- Map -->
+    <div id="orbital-menu"></div>
 
-<div id = "map"></div>
+    <main class="page-content">
+        <div id="map"></div>
+    </main>
 
-<!-- Scripts: Load after body for faster rendering -->
-<!-- Bootstrap JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<!-- Custom JS -->
-<script src="https://jstreight.github.io/web/scripts/map.js"></script>
-
+    <!-- Custom JS -->
+    <script src="../scripts/map.js"></script>
+    <script src="../scripts/orbital-menu.js"></script>
 </body>
 </html>

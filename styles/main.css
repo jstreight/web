@@ -1040,5 +1040,116 @@ th {
     top:50%;
     left:50%;
 
+}
 
+.orbit-item.active{
+
+    background:white;
+    color:black;
+    box-shadow:0 0 30px rgba(255,255,255,0.4);
+}
+
+/* =========================================================
+   SUBPAGE LAYOUT (orbital nav on content pages)
+========================================================= */
+
+body.subpage{
+
+    background:#020202;
+    background-image:none;
+}
+
+body.subpage .orbital-nav{
+
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:900;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    padding:20px;
+
+    pointer-events:none;
+}
+
+body.subpage .orbit-system{
+
+    width:min(36vw, 340px);
+    height:min(36vw, 340px);
+
+    pointer-events:auto;
+}
+
+body.subpage .center-circle img{
+
+    width:clamp(48px, 12vw, 80px);
+    height:clamp(48px, 12vw, 80px);
+}
+
+body.subpage .center-circle h1{
+
+    font-size:1.1rem;
+    letter-spacing:4px;
+}
+
+body.subpage .center-circle p{
+
+    font-size:0.6rem;
+    letter-spacing:2px;
+}
+
+body.subpage .page-content{
+
+    position:relative;
+    z-index:1;
+
+    padding-top:min(38vw, 360px);
+}
+
+@media(max-width:900px){
+
+    body.subpage .page-content{
+
+        padding-top:100px;
+    }
+
+    body.subpage .orbit-system{
+
+        width:100%;
+        height:100vh;
+    }
+}
+
+/* =========================================================
+   MAP PAGES
+========================================================= */
+
+body.map-page .page-content{
+
+    padding-top:min(38vw, 360px);
+    padding-left:0;
+    padding-right:0;
+}
+
+body.map-page #map{
+
+    width:100%;
+    height:calc(100vh - min(38vw, 360px));
+}
+
+@media(max-width:900px){
+
+    body.map-page .page-content{
+
+        padding-top:100px;
+    }
+
+    body.map-page #map{
+
+        height:calc(100vh - 100px);
+    }
 }
