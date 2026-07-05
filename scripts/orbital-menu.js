@@ -11,7 +11,7 @@
         { label: 'PROJECTS', href: `${pages}/projects.html`, orbit: 'orbit2', page: 'projects.html' },
         { label: 'BIO', href: `${pages}/background.html`, orbit: 'orbit3', page: 'background.html' },
         { label: 'EDUCATION', href: `${pages}/education.html`, orbit: 'orbit4', page: 'education.html' },
-        { label: 'RESUME', href: `${root}/documents/Jesse Streight.pdf`, orbit: 'orbit5', external: true },
+        { label: 'RESUME', href: `${root}/documents/Jesse%20Streight.pdf`, orbit: 'orbit5', external: true },
         { label: 'BLOG', href: 'https://jstreight.blogspot.com/', orbit: 'orbit6', external: true },
         { label: 'MAP', href: `${pages}/map.html`, orbit: 'orbit7', page: 'map.html' },
         { label: 'REAL ESTATE', href: 'https://www.realtor.ca/', orbit: 'orbit8', external: true }
